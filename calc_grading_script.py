@@ -74,7 +74,7 @@ def grade_repo(nid, clone_directory):
     os.chdir(clone_directory)
 
     try:
-      # Step 2: Install dependencies with Pipenv
+      # Install dependencies with Pipenv
       pipenv_install = subprocess.run(["pipenv", "install", "-e", "./"], capture_output=True, text=True, timeout=300)
       #if pipenv_install.returncode == 0:
           #print("Dependencies installed successfully.")
@@ -82,7 +82,7 @@ def grade_repo(nid, clone_directory):
           #print("Dependency installation failed.")
           #print(pipenv_install.stderr)
   
-      # Step 3: Run pipenv shell and compile grammar with make
+      # Run pipenv shell and compile grammar with make
       make_grammar = subprocess.run(["pipenv", "run", "make", "-C", "grammar/"], capture_output=True, text=True, timeout=300)
       #if make_grammar.returncode == 0:
           #print("Grammar compiled successfully.")
@@ -90,7 +90,7 @@ def grade_repo(nid, clone_directory):
           #print("Grammar compilation failed.")
           #print(make_grammar.stderr)
   
-      # Step 4: Run calc/Calc.py with heredoc input using subprocess
+      # Run calc/Calc.py with heredoc input using subprocess
       calc_run = subprocess.run(
           ["pipenv", "run", "python3", "calc/Calc.py"],
           input="a := 2\nx := a + 2\ny := 3\nz := x % y\n",
