@@ -19,7 +19,7 @@ for index, row in df.iterrows():
         nid = row['SIS Login ID']
 
         # Run the grading script for the current student and collect the score
-        grading_cmd = ["python", "calc_grading_script.py", nid]
+        grading_cmd = ["pipenv", "python", "calc_grading_script.py", nid]
         result = subprocess.run(grading_cmd, capture_output=True, text=True)
 
         # Check if the grading script ran successfully

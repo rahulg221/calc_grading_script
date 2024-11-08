@@ -75,7 +75,7 @@ def grade_repo(nid, clone_directory):
 
     try:
       # Install dependencies with Pipenv
-      pipenv_install = subprocess.run(["pipenv", "install", "-e", "./"], capture_output=True, text=True, timeout=300)
+      #pipenv_install = subprocess.run(["pipenv", "install", "-e", "./"], capture_output=True, text=True, timeout=300)
       #if pipenv_install.returncode == 0:
           #print("Dependencies installed successfully.")
       #else:
@@ -83,7 +83,8 @@ def grade_repo(nid, clone_directory):
           #print(pipenv_install.stderr)
   
       # Run pipenv shell and compile grammar with make
-      make_grammar = subprocess.run(["pipenv", "run", "make", "-C", "grammar/"], capture_output=True, text=True, timeout=300)
+      #make_grammar = subprocess.run(["pipenv", "run", "make", "-C", "grammar/"], capture_output=True, text=True, timeout=300)
+      make_grammar = subprocess.run(["make", "-C", "grammar/"], capture_output=True, text=True, timeout=300)
       #if make_grammar.returncode == 0:
           #print("Grammar compiled successfully.")
       #else:
